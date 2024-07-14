@@ -1,13 +1,22 @@
 import './App.css'
-import Component1 from './components/Component1'
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import AuthState from './context/AuthState'
+import NavBar from "./components/NavBar"
+import Login from "./components/Login"
+import Home from "./components/Home"
 
 function App() {
 
   return (
     <>
     <AuthState>
-      <Component1/>
+      <BrowserRouter>
+       <NavBar />
+       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+       </Routes>
+      </BrowserRouter>
     </AuthState>
     </>
   )
